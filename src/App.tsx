@@ -4,6 +4,11 @@ import { generateClient } from "aws-amplify/data";
 
 const client = generateClient<Schema>();
 
+  
+  function deleteTodo(id: string) {
+    client.models.Todo.delete({ id })
+  }
+
 function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
 
